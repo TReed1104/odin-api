@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS db_flask_api;
+CREATE DATABASE IF NOT EXISTS testing_db_flask_api;
