@@ -1,10 +1,10 @@
 version: "3.5"
 networks:
-    flask-api-dev-network:
-        name: flask-api-dev-network
+    odin-api-dev-network:
+        name: odin-api-dev-network
 services:
     db-mysql-dev:
-        container_name: flask-api-dev-db
+        container_name: odin-api-dev-db
         image: mysql:latest
         command: --init-file /usr/src/app/init.sql
         volumes:
@@ -19,18 +19,18 @@ services:
             MYSQL_USER: <USER>
             MYSQL_PASSWORD: <PASSWORD>
         networks:
-            - flask-api-dev-network
+            - odin-api-dev-network
 
-    flask-api-dev:
-        container_name: flask-api-dev
+    odin-api-dev:
+        container_name: odin-api-dev
         build:
             context: ./api
             dockerfile: Dockerfile.dev
-        image: treed1104/flask-api-dev:latest
+        image: treed1104/odin-api-dev:latest
         restart: always
         links:
             - db-mysql
         ports:
             - "5000:5000"
         networks:
-            - flask-api-dev-network
+            - odin-api-dev-network
