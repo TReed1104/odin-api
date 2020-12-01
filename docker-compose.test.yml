@@ -1,10 +1,10 @@
 version: "3.5"
 networks:
-    flask-api-test-network:
-        name: flask-api-test-network
+    odin-api-test-network:
+        name: odin-api-test-network
 services:
     db-mysql-test:
-        container_name: flask-api-test-db
+        container_name: odin-api-test-db
         image: mysql:latest
         command: --init-file /usr/src/app/init.sql
         volumes:
@@ -19,18 +19,18 @@ services:
             MYSQL_USER: <USER>
             MYSQL_PASSWORD: <PASSWORD>
         networks:
-            - flask-api-test-network
+            - odin-api-test-network
 
-    flask-api-test:
-        container_name: flask-api-test
+    odin-api-test:
+        container_name: odin-api-test
         build:
             context: ./api
             dockerfile: Dockerfile.test
-        image: treed1104/flask-api-test:latest
+        image: treed1104/odin-api-test:latest
         restart: always
         links:
             - db-mysql
         ports:
             - "5000:5000"
         networks:
-            - flask-api-test-network
+            - odin-api-test-network

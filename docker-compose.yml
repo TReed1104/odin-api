@@ -1,10 +1,10 @@
 version: "3.5"
 networks:
-    flask-api-network:
-        name: flask-api-network
+    odin-api-network:
+        name: odin-api-network
 services:
     nginx:
-        container_name: flask-api-nginx
+        container_name: odin-api-nginx
         image: nginx:latest
         restart: always
         volumes:
@@ -13,10 +13,10 @@ services:
             - 80:80
             - 443:443
         networks:
-            - flask-api-network
+            - odin-api-network
 
     db-mysql:
-        container_name: flask-api-db
+        container_name: odin-api-db
         image: mysql:latest
         command: --init-file /usr/src/app/init.sql
         volumes:
@@ -31,18 +31,18 @@ services:
             MYSQL_USER: <USER>
             MYSQL_PASSWORD: <PASSWORD>
         networks:
-            - flask-api-network
+            - odin-api-network
 
-    flask-api:
-        container_name: flask-api
+    odin-api:
+        container_name: odin-api
         build:
             context: ./api
             dockerfile: Dockerfile
-        image: treed1104/flask-api:latest
+        image: treed1104/odin-api:latest
         restart: always
         links:
             - db-mysql
         expose:
             - "5000"
         networks:
-            - flask-api-network
+            - odin-api-network
