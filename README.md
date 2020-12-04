@@ -45,6 +45,9 @@ Marshmellow is a dependency of Webargs, we had to freeze this at this version du
 ### API - Nose2 - 0.9.1
 Nose2 is an extension of the Python Unit-test module, we use this as part of our unit, feature and integration testing. The project is set to export the results of these tests as JUnit XML files.
 
+### API - Requests - 2.22.0
+Requests is a library used for easily implementing HTTP GET/PUSH/POST/DELETE requests in python. Its through this package that the API requests data from the other APIs in the stack.
+
 <br>
 
 ---
