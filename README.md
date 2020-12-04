@@ -1,4 +1,4 @@
-# Odin
+# Odin API
 ## What is Odin?
 Odin is a service developed for analysing the utilisation of the facilities and functionality of the service in the Asgard System Stack.
 
