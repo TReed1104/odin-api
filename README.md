@@ -96,6 +96,47 @@ Example Endpoints
 10.5.11.173/odin-api/computers
 ```
 
-<br>
+### Endpoint - Timetable Analysis
+Usage:
+```
+<server_address>/odin-api/analyse_timetables
+
+Supported HTTP Methods
+* GET
+```
+
+params:
+```
+N/A
+```
+
+#### GET method
+The GET method for the Timetable analysis endpoint returns a JSON array listing the statistics for each timetable.
+
+Usage:
+```
+GET -> <server_address>/odin-api/analyse_timetables
+```
+
+Example Response:
+```JSON
+{
+    "meta":{},
+    "links":{
+        "self": "http://odin-api:5000/analyse_timetables"
+    },
+    "data": {
+        "timetables":[
+            {
+                "booked_percent": 223.5,
+                "duration_bookable": 1170,
+                "duration_booked": 2615.0,
+                "timetable": "Timetable A"
+            }
+        ]
+    }
+}
+```
+
 
 ---
