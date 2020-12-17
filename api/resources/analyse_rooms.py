@@ -26,7 +26,7 @@ class AnalyseRooms(Resource):
             ## Stats for this room
             roomStatistics = {
                 "id": room["id"],
-                "name": room['room_name'],
+                "name": room['name'],
                 "totals": {
                     "number_of_desks": room['number_of_desks'],
                     "number_of_computers": room['number_of_computers'],
