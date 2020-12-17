@@ -33,7 +33,7 @@ class AnalyseRooms(Resource):
                     "number_of_capacity": room['capacity']
                 },
                 "percentiles": {
-                    "percent_desks_used_in_teaching": float("{0:.2f}".format((room['capacity'] / room['number_of_desks']) * 100)),
+                    "percent_desks_used_in_teaching": float("{0:.2f}".format(((room['capacity'] if room['capacity'] > 0 else 1 ) / room['number_of_desks']) * 100)),
                     "percent_desks_with_computers": float("{0:.2f}".format((room['number_of_computers'] / room['number_of_desks']) * 100)),
                     "percent_teaching_desks_with_computers": float("{0:.2f}".format((room['number_of_computers'] / room['capacity']) * 100))
                 }
