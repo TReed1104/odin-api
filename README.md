@@ -252,3 +252,49 @@ Example Response:
 }
 ```
 
+### Endpoint - Computers Analysis
+Usage:
+```
+<server_address>/odin-api/computers
+
+Supported HTTP Methods
+* GET
+```
+
+params:
+```
+N/A
+```
+
+#### GET method
+The GET method for the Computer analysis endpoint returns a JSON array listing the usage statistics for each computer.
+
+Usage:
+```
+GET -> <server_address>/odin-api/computers
+```
+
+Example Response:
+```JSON
+{
+    "meta":{},
+    "links":{
+        "self": "http://odin-api:5000/computers"
+    },
+    "data": {
+        "computers":[
+            {
+                "id": 1,
+                "last_seen": "Thu, 17 Dec 2020 14:11:49 GMT",
+                "mac_address": "AA:BB:CC:DD:EE:FF",
+                "os_count_linux": 389499,
+                "os_count_mac": 0,
+                "os_count_unknown": 0,
+                "os_count_windows": 0,
+                "seen_count_current": 44516,
+                "seen_count_highest": 204259
+            }
+        ]
+    }
+}
+```
