@@ -199,3 +199,56 @@ Example Response:
 }
 ```
 
+### Endpoint - Carousel Analysis
+Usage:
+```
+<server_address>/odin-api/analyse_carousels
+
+Supported HTTP Methods
+* GET
+```
+
+params:
+```
+N/A
+```
+
+#### GET method
+The GET method for the carousel analysis endpoint returns a JSON array listing the statistics for each carousel.
+
+Usage:
+```
+GET -> <server_address>/odin-api/analyse_carousels
+```
+
+Example Response:
+```JSON
+{
+    "meta":{},
+    "links":{
+        "self": "http://odin-api:5000/analyse_carousels"
+    },
+    "data": {
+        "carousels":[
+            {
+                "carousel_duration": 30000,
+                "id": 1,
+                "name": "Carousel A",
+                "number_of_content": 2
+            },
+            {
+                "carousel_duration": 15000,
+                "id": 2,
+                "name": "Carousel B",
+                "number_of_content": 1
+            },
+        ],
+        "totals":{
+            "number_of_carousels": 2,
+            "total_content_duration": 45000,
+            "total_number_of_slides": 3
+        }
+    }
+}
+```
+
