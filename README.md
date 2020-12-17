@@ -78,7 +78,23 @@ Under Construction
 ---
 
 ## Usage Guide - API Interactions and Endpoints
-Under Construction
+
+### Exposed Endpoints
+Valid Endpoints
+```
+<server_address>/odin-api/analyse_timetables
+<server_address>/odin-api/analyse_rooms
+<server_address>/odin-api/analyse_carousels
+<server_address>/odin-api/computers
+```
+
+Example Endpoints
+```
+10.5.11.173/odin-api/analyse_timetables
+10.5.11.173/odin-api/analyse_rooms
+10.5.11.173/odin-api/analyse_carousels
+10.5.11.173/odin-api/computers
+```
 
 <br>
 
