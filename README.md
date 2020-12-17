@@ -138,5 +138,64 @@ Example Response:
 }
 ```
 
+### Endpoint - Room Analysis
+Usage:
+```
+<server_address>/odin-api/analyse_rooms
 
----
+Supported HTTP Methods
+* GET
+```
+
+params:
+```
+N/A
+```
+
+#### GET method
+The GET method for the Room analysis endpoint returns a JSON array listing the statistics for each room.
+
+Usage:
+```
+GET -> <server_address>/odin-api/analyse_rooms
+```
+
+Example Response:
+```JSON
+{
+    "meta":{},
+    "links":{
+        "self": "http://odin-api:5000/analyse_rooms"
+    },
+    "data": {
+        "rooms":[
+            {
+                "id": 1,
+                "name": "Room A",
+                "percentiles":{
+                    "percent_desks_used_in_teaching": 100,
+                    "percent_desks_with_computers": 100,
+                    "percent_teaching_desks_with_computers": 100
+                },
+                "totals":{
+                    "number_of_capacity": 2,
+                    "number_of_computers": 2,
+                    "number_of_desks": 2
+                }
+            },
+        ],
+        "percentiles":{
+            "percent_desks_used_in_teaching": 100,
+            "percent_desks_with_computers": 100,
+            "percent_teaching_desks_with_computers": 100
+        },
+        "totals":{
+            "number_of_computers": 2,
+            "number_of_desks": 2,
+            "number_of_rooms": 1,
+            "teaching_capacity": 2
+        }
+    }
+}
+```
+
