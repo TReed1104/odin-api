@@ -23,31 +23,43 @@ class AnalyseRooms(Resource):
 
         ## Iterate through each room, calculating its stats
         for room in rooms:
-            capacity = room['capacity']
-            if room['capacity'] == 0:
-                capacity = 1
-
             ## Stats for this room
-            roomStatistics = {
-                "id": room["id"],
-                "name": room['name'],
-                "totals": {
-                    "number_of_desks": room['number_of_desks'],
-                    "number_of_computers": room['number_of_computers'],
-                    "number_of_capacity": capacity
-                },
-                "percentiles": {
-                    "percent_desks_used_in_teaching": float("{0:.2f}".format((capacity / room['number_of_desks']) * 100)),
-                    "percent_desks_with_computers": float("{0:.2f}".format((room['number_of_computers'] / room['number_of_desks']) * 100)),
-                    "percent_teaching_desks_with_computers": float("{0:.2f}".format((room['number_of_computers'] / capacity) * 100))
+            if room['capacity'] > 0 and room['number_of_desks'] > 0 and room['number_of_computers'] > 0:
+                roomStatistics = {
+                    "id": room["id"],
+                    "name": room['name'],
+                    "totals": {
+                        "number_of_desks": room['number_of_desks'],
+                        "number_of_computers": room['number_of_computers'],
+                        "number_of_capacity": room['capacity']
+                    },
+                    "percentiles": {
+                        "percent_desks_used_in_teaching": float("{0:.2f}".format((room['capacity'] / room['number_of_desks']) * 100)),
+                        "percent_desks_with_computers": float("{0:.2f}".format((room['number_of_computers'] / room['number_of_desks']) * 100)),
+                        "percent_teaching_desks_with_computers": float("{0:.2f}".format((room['number_of_computers'] / room['capacity']) * 100))
+                    }
                 }
-            }
+            else:
+                roomStatistics = {
+                    "id": room["id"],
+                    "name": room['name'],
+                    "totals": {
+                        "number_of_desks": room['number_of_desks'],
+                        "number_of_computers": room['number_of_computers'],
+                        "number_of_capacity": room['capacity']
+                    },
+                    "percentiles": {
+                        "percent_desks_used_in_teaching": "Unavailable",
+                        "percent_desks_with_computers": "Unavailable",
+                        "percent_teaching_desks_with_computers": "Unavailable"
+                    }
+                }
             ## Push the statistics object to the array
             roomByRoomStatistics.append(roomStatistics)
 
             ## Tally the total statistics for all the rooms registered with the system
             totalDesks += room['number_of_desks']
-            totalTeachingCapacity += capacity
+            totalTeachingCapacity += room['capacity']
             totalComputers += room['number_of_computers']
 
         ## Create our response
