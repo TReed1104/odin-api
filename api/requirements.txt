@@ -5,7 +5,7 @@ Flask-RESTful==0.3.7
 Flask-SQLAlchemy==2.4.0
 APScheduler==3.6.3
 mysqlclient==1.4.6
-webargs==5.3.2
+webargs==5.5.3
 gunicorn==19.9.0
 marshmallow==3.0.1
 requests==2.22.0
